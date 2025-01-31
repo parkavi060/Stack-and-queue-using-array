@@ -1,0 +1,54 @@
+##queue using array
+
+import java.util.*;
+
+
+class Queue{
+	int a[]=new int[5];
+	int front=-1;
+	int rear=-1;
+	public void enque(int data) {
+		if(front==-1) {
+			front=0;
+		}
+	else if(rear==a.length-1) {
+			System.out.println("The stack is full");
+		}
+		else {
+			rear++;
+			a[rear]=data;
+		}
+	}
+	public void deque() {
+		if(front==-1 || front>rear) {
+			System.out.println("The stack is empty");
+			front=rear=-1;
+		}
+		else {
+			front++;
+		}
+	}
+	public void top() {
+		System.out.println("The element in the top is:"+a[rear]);
+	}
+	public void display() {
+		
+		for(int i=front;i<=rear;i++) {
+			System.out.print(a[i]+" ");
+		}
+	}
+}
+public class DLLinsertion {
+	public static void main(String []args) {
+		Queue s=new Queue();
+		s.enque(10);
+		s.enque(20);
+		s.enque(30);
+		s.enque(40);
+		s.enque(50);
+		s.top();
+		s.deque();
+		System.out.println("Displaying the elements:");
+		s.display();
+	}
+}
